@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+import os, sys
+import os.path
+import shutil, pickle
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+def classify(indexfile, inputdir):
+	urldict = {}
+	file = open(indexfile)
+	for line in file:
+		try:
+			elements = line.strip().split('\t')
+			# print "elements", elements
+			imagename = elements[1]
+			imageurl = elements[0]
+			imagefullname = os.path.join(inputdir,imagename)
+			# print 'imagefullname', imagefullname
+			urldict[imagename] = imageurl
+		except:
+				continue
+	dictoutput = open('urldict.pkl','wb')
+	pickle.dump(urldict, dictoutput)
+	dictoutput.close()
+
+
+classify('index.txt', 'img')
