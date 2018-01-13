@@ -1,0 +1,120 @@
+$def with (name,list1,list2,form)
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- 引入 Bootstrap -->
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+<style type="text/css">
+div.container
+{
+width:100%;
+margin:0px;
+border:1px solid white;
+}
+div.header
+{
+padding:0.5em;
+color:white;
+background-color:blue;
+clear:left;
+}
+h1.header
+{
+padding:0;
+margin:0;
+}
+
+div.Content
+{
+float:left;
+width:300px;
+margin:20px;
+border:1px solid gray;
+background-color:gray;
+}
+
+h1.header
+{
+padding:0;
+margin:0;
+
+</style>
+</head>
+
+<body>
+
+ 
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid"> 
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">FaceAlbum</a>
+    </div>
+    <form class="navbar-form navbar-left" action="/i" method="GET">
+        <div class="input-group">
+	                    <input type="text" class="form-control" placeholder="Search what you love">
+	                    <span class="input-group-btn">
+	                    	
+	                    	
+	                        <button class="btn btn-primary" type="button">Go!</button>
+	                        
+	                        
+	                    </span>
+	                </div><!-- /input-group -->
+    </form>
+    
+	                      
+    </div>
+	        
+	           
+	</nav>
+
+																																																																	
+					
+					
+				
+$if name:
+	<a style="font-size:30px;color:red">There are  results about your picture:</a>
+	$if len(list1):
+		<div class="container">
+			$for c in list1:
+				<div class="Content">
+					<img src=$c width =228 height = 228>
+					</img>
+				
+																																																																	
+					
+					
+				</div>
+
+		</div>
+	$else:
+		<a target="_blank" style="font-size:30px">
+				None such imformation!Sorry!
+				<br>
+		</a>
+		
+	$if len(list2):
+		<div class="container">
+			$for c in list2:
+				<div class="Content">
+					<img src=$c width =228 height = 228>
+					</img>
+				
+																																																																	
+					
+					
+				</div>
+
+		</div>
+	$else:
+		<a target="_blank" style="font-size:30px">
+				None such imformation!Sorry!
+				<br>
+		</a>
+		
+$else:
+    <em>You have input nothing!</em>
+</body>
+</html>

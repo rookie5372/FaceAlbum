@@ -1,0 +1,441 @@
+$def with(form)
+
+<html>
+   <head>
+       
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- 引入 Bootstrap -->
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+      <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+      <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+      <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+      <style type="text/css"> 
+.rootclass{ border:none;position:relative;} 
+.divcss5{text-align: center;}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0px;padding:0px;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/* start editing from here */
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+	body{
+    margin: 0px;
+    padding: 0px;
+}
+#bg{
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+.wrap
+{
+	width:70%;
+	margin: 0 auto;
+}
+
+
+
+.auto-inp{
+	width: 240px;
+	height: 36px;
+	padding-left: .5em;
+	border-radius: 2px;
+	border: 1px solid #dedede;
+	color: #666;
+	outline: none;
+}
+.auto{
+	width: 500px;
+	border: 1px solid #dedede;
+	border-top: none;
+	position: absolute;
+}
+.auto_out{
+	width: 500px;
+	height: 36px;
+	line-height: 36px;
+	padding-left: .5em;
+	color: #000;
+	background: #fff;
+	overflow: hidden;
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+.auto_out.on{
+	background: #eee;
+	cursor: pointer;
+}
+.hidden{
+	display: none;
+}
+
+
+.content
+{
+	padding-top: 65px ;
+	
+	text-align: center;
+}
+.logo
+{
+	text-align: center;
+	padding: 20 0px;
+	display: block;
+}
+.logo a
+{
+	display: inline-block;
+}
+.logo a h1
+{
+font-family: 'Mr Dafoe', cursive;
+font-size:7em;
+color: #FFF;
+
+
+}
+.content p
+{
+	color: #fff;
+	font-size: 40px;
+	padding-top: 70px;
+	font-family: 'Microsoft yahei', sans-serif;
+}
+/*---start-form----*/
+
+.form{
+	width: 60%;
+margin: 65px 10px 10px 223px;
+position: relative;
+}
+.form form {
+background: #FFF;
+
+}
+.notified form{
+	text-align:center;
+	border: 1px solid #323733;
+	background: #323733;
+	border-radius: 6px;
+	
+}
+.form input[type="name"]{
+	width: 88%;
+	padding:23px;
+	color:#d9d9d9;
+	font-size:20px;
+	 outline:none;
+	 border: none;
+	 background:#fff;
+	margin: 0px;
+	top: 100;
+		font-family: 'Microsoft yahei', sans-serif;
+		font-weight: 600;
+		-webkit-appearance: none;
+}
+.form input[type="name"]:focus
+{
+color: #474747;
+outline: none;
+top: 100;
+	font-family: 'Microsoft yahei', sans-serif;
+}
+.form input[type="submit"]{
+	background:	#993399;
+	padding: 13px ;
+	border:none;
+	color:#FFFFFF;
+	outline:none;
+	cursor:pointer;
+	margin: 0px;
+	width:20%;
+	font-size:20px;
+		font-family: 'Microsoft yahei', sans-serif;
+	font-weight: 600;
+	-webkit-transition: all 0.3s;
+-moz-transition: all 0.3s;
+transition: all 0.3s;
+-webkit-appearance: none;
+position: absolute;
+right: 126;
+top: 170;
+border-radius:10px;
+}
+.t1 {    
+width:340px;     /* 这里是输入框的长度 */    
+height:50px;   /* 这里是输入框的宽度 */    
+ position: absolute; /* 这里规定输入框的定位类型 */    
+top:170px;   /* 这里规定输入框于原位置向下偏移100px  */    
+left: 0px; 
+border-radius:10px;   /*  这里规定输入框于原位置向右偏移300px  */
+} 
+.form button[type="upload"]{
+	background:	#990066;
+	padding: 13px ;
+	border:none;
+	color:#FFFFFF;
+	outline:none;
+	cursor:pointer;
+	margin: 0px;
+	width:20%;
+	font-size:20px;
+		font-family: 'Microsoft yahei', sans-serif;
+	font-weight: 500;
+	-webkit-transition: all 0.3s;
+-moz-transition: all 0.3s;
+transition: all 0.3s;
+-webkit-appearance: none;
+position: absolute;
+right: 0;
+top: 170;
+border-radius: 10px;
+}
+.form input[type="button"]:hover
+{
+	
+	background: #BB7419;
+}
+/*----end-form-----*/
+/*-----social-icons-----*/
+.footer {
+padding-top: 30px;
+}
+.social-icons
+{
+	margin: 0% 42%;
+	padding-top: 70px;
+	width: 20%;
+}
+.social-icons a{
+		padding: 10px;
+	float:left;
+}
+.social-icons a img{
+	width:100%;
+	
+}
+/*--------social simptip--------*/
+[data-tooltip] {
+position: relative;
+display: inline-block;
+}
+[data-tooltip].simptip-position-bottom:before {
+border-bottom-color: #000;
+}
+[data-tooltip].simptip-position-bottom:after {
+background-color: #000;
+color: #fff;
+}
+[data-tooltip]:before {
+content: '';
+position: absolute;
+border-width: 6px;
+border-style: solid;
+border-color: rgba(0, 0, 0, 0);
+}
+[data-tooltip]:before, [data-tooltip]:after {
+position: absolute;
+visibility: hidden;
+opacity: 0;
+z-index: 999999;
+}
+[data-tooltip]:after {
+height: 22px;
+padding: 11px 11px 0;
+font-size: 13px;
+line-height: 11px;
+content: attr(data-tooltip);
+white-space: nowrap;
+}
+[data-tooltip]:hover, [data-tooltip]:focus {
+background-color: rgba(0, 0, 0, 0);
+}
+[data-tooltip]:hover:before, [data-tooltip]:hover:after, [data-tooltip]:focus:before, [data-tooltip]:focus:after {
+visibility: visible;
+opacity: 1;
+}
+.simptip-position-bottom.simptip-movable:before {
+margin-top: -15px;
+}
+.simptip-position-bottom.simptip-movable:after {
+margin-top: -3px;
+}
+.simptip-position-bottom:before, .simptip-position-bottom:after, .simptip-position-top:before, .simptip-position-top:after {
+left: 32%;
+}
+.simptip-position-bottom:before, .simptip-position-bottom:after {
+top: 110%;
+}
+.simptip-position-bottom:after, .simptip-position-top:after {
+margin-left: -18px;
+}
+.simptip-position-right.simptip-movable:before, .simptip-position-right.simptip-movable:after, .simptip-position-left.simptip-movable:before, .simptip-position-left.simptip-movable:after, .simptip-position-top.simptip-movable:before, .simptip-position-top.simptip-movable:after, .simptip-position-bottom.simptip-movable:before, .simptip-position-bottom.simptip-movable:after {
+-webkit-transition: all .1s linear;
+-moz-transition: all .1s linear;
+-o-transition: all .1s linear;
+-ms-transition: all .1s linear;
+transition: all .1s linear;
+}
+.simptip-position-bottom.simptip-movable:hover:before, .simptip-position-bottom.simptip-movable:hover:after {
+-webkit-transform: translateY(10px);
+-moz-transform: translateY(10px);
+-ms-transform: translateY(10px);
+-o-transform: translateY(10px);
+transform: translateY(10px);
+}
+
+/*-------------response-----------------*/
+@media only screen and (max-width: 1440px) and (min-width: 1366px)
+{
+.form {
+margin: 65px 20px 20px 194px;
+}
+}
+@media only screen and (max-width: 1366px) and (min-width: 1280px)
+{
+.form {
+width: 64%;
+margin: 65px 20px 20px 165px;
+}
+}
+@media only screen and (max-width: 1280px) and (min-width: 1024px)
+{
+	.form {
+width: 68%;
+margin: 65px 20px 20px 138px;
+}
+}
+@media only screen and (max-width: 1024px) and (min-width: 768px)
+{
+	.form {
+width: 86%;
+margin: 65px 20px 20px 45px;
+}
+.social-icons {
+width: 24%;
+}
+}
+@media only screen and (max-width:768px) and (min-width: 640px)
+{
+.form {
+width: 91%;
+margin: 65px 20px 20px 17px;
+}
+.form input[type="text"] {
+width: 69%;
+}
+.form input[type="button"] {
+width: 30%;
+}
+.social-icons {
+margin: 0% 35%;
+width: 31%;
+}
+}
+@media only screen and (max-width:640px) and (min-width: 480px)
+{
+.form {
+width: 93%;
+margin: 65px 20px 20px 17px;
+}
+.form input[type="text"] {
+width: 64%;
+}
+.form input[type="button"] {
+width:35%;
+
+}
+.social-icons {
+margin: 0% 30%;
+width: 38%;
+
+}
+}
+@media only screen and (max-width:480px) and (min-width: 320px)
+{
+
+.form {
+width: 93%;
+margin: 65px 20px 20px 10px;
+}
+.form input[type="text"] {
+
+width: 80%;
+font-size:16px;
+padding: 20px;
+top: 400;
+}
+.form input[type="button"] {
+width:38.6%;
+font-size:16px;
+padding: 20px;
+}
+.social-icons {
+margin: 0% 28%;
+width: 50%;
+}
+.content {
+padding-top: 40px;
+}
+.content p {
+padding-top: 40px;
+}
+.footer {
+padding-top: 20px;
+}
+.footer p 
+{
+padding: 20px;
+}
+}
+
+
+
+</style> 
+   </head>
+   <body>
+   	<img id="bg" src="static/bg.png" />
+  <div class="wrap">
+				<div class="content">
+   <div class="form">
+						<form id="contact-form" action="/s" method="GET">
+							<input placeholder="Search what you want" class="t1" type="text" name="keyword">
+							<div class="auto hidden" id="auto">
+							</div>
+							<input type="submit" id="contact-submit" value="Search" name="Search">
+						</form>
+						<form id="contact-form" action="/img" method="GET">
+							<button href='/img' type='upload' value="Upload Picture" >Picture</button>
+						</form>
+	
+					</div>
+					
+		</div>
+			</div>
+      <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <!-- 包括所有已编译的插件 -->
+      <!--<script src="js/bootstrap.min.js"></script> -->
+   </body>
+</html>
