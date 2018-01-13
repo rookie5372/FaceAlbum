@@ -1,0 +1,66 @@
+import web
+from web import form
+import urllib2
+import os
+import all_search
+import envir
+urls = (
+    '/', 'index',
+    '/s', 's',
+    '/i','image',
+    '/l','l_r'
+)
+
+piclist =[]
+render = web.template.render('search_item/') # your templates
+
+login = form.Form(
+    form.Textbox('keyword'),
+    form.Button('Search'),
+)
+
+class index:
+    def GET(self):
+        f = login()
+        return render.homepage(f)
+    
+class s:
+    def GET(self):
+	global piclist
+        user_data = web.input()
+        if user_data.keyword:
+            piclist,s = all_search.text_search(user_data.keyword)
+            return render.picresult(s,user_data.keyword,piclist,login)
+
+class image:
+    def GET(self):
+        user_data = web.input()
+	global piclist
+        if user_data.keyword:
+            c,d = all_search.img_search(user_data.keyword)
+	    piclist = []
+	    for item in c:
+		piclist.append(item)
+	    for item in d:
+		piclist.append(item)
+            return render.pictopicresult(user_data.keyword,c,d,login)
+
+class l_r: 
+    def GET(self):
+	global piclist
+	user_data = web.input()
+        if user_data.picname:
+	    a=urltolabeldict(user_data.picname)
+            i=0
+	    n=0
+	    for x in piclist:
+	        if x==user_data.picname:
+		    n=i
+                else:
+		    i=i+1
+            return render.left_right(piclist,n,a,login)
+
+	
+if __name__ == "__main__":
+    app = web.application(urls, globals()) 
+    app.run()
